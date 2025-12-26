@@ -13,5 +13,6 @@ public class Note {
     private Long id;
     private String title;
     private String content;
+    private String fileUrl;
     private LocalDateTime createTime;
 }
