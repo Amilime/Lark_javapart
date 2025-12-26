@@ -1,0 +1,15 @@
+server:
+  port: 8080 # 服务启动端口
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 连接 Docker 里的 MySQL。如果不通，试试 localhost 改为 127.0.0.1
+    url: jdbc:mysql://localhost:3306/lark_db?useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root # 你在 docker-compose 里设置的密码
+
+# MyBatis Plus 配置：打印 SQL 日志，方便你调试
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
