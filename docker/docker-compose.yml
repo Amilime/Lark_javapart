@@ -15,10 +15,11 @@ services:
 
   # 2. 缓存 Redis
   redis:
-    image: redis:alpine
-    container_name: redis_lark
+    image: redis:7.0
+    container_name: lark_redis
     ports:
       - "6379:6379"
+    command: redis-server --appendonly yes # 开启持久化
   zookeeper:
     image: wurstmeister/zookeeper
     container_name: zookeeper_lark

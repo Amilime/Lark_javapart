@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")  // 类级别的路径，下面是犯法级别路径
+@CrossOrigin(originPatterns = "*") // 允许任何网页跨域访问这个接口
 public class UserController {
 
     @Autowired

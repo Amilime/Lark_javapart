@@ -5,6 +5,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import java.nio.charset.StandardCharsets;
 
 import java.util.Date;
 // 这里是对token进行操作的工厂
@@ -28,7 +29,7 @@ public class JwtUtils {
                 .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expireTime))
-                .signWith(SignatureAlgorithm.HS256, secretKey)
+                .signWith(SignatureAlgorithm.HS256, secretKey.getBytes(StandardCharsets.UTF_8))
                 .compact();
     }
 
@@ -37,7 +38,7 @@ public class JwtUtils {
     public Claims getClaimsByToken(String token) {
         try {
             return Jwts.parser()
-                    .setSigningKey(secretKey)
+                    .setSigningKey(secretKey.getBytes(StandardCharsets.UTF_8))
                     .parseClaimsJws(token)
                     .getBody();
         } catch (Exception e) {

@@ -63,3 +63,5 @@ DocumentController：
 结束：
 
 请求处理完，Interceptor 的 afterCompletion 触发，把 UserContext 清空（摘掉胸牌），防止下一个人复用。
+
+token有个坑，java的jjwt 0.9x库会先解码Base64的字符串
