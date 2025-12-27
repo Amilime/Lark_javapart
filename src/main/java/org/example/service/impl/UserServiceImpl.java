@@ -44,4 +44,26 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         // 4. 返回标准结果
         return Result.success(token);
     }
+    @Override
+    public Result<User> register(User user) {
+        // 1. 检查账号是否已存在
+        QueryWrapper<User> query = new QueryWrapper<>();
+        query.eq("username", user.getUsername());
+        if (baseMapper.selectCount(query) > 0) {
+            return Result.error("注册失败：账号 " + user.getUsername() + " 已存在");
+        }
+
+        // 2. 补全默认信息
+        if (user.getNickname() == null || user.getNickname().isEmpty()) {
+            user.setNickname("新用户" + System.currentTimeMillis() % 1000);
+        }
+        user.setRole("USER"); // 默认都是普通用户
+        user.setCreateTime(java.time.LocalDateTime.now());
+
+
+        baseMapper.insert(user);
+
+        return Result.success(user);
+    }
+
 }

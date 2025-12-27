@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/user")  // 类级别的路径，下面是犯法级别路径
 public class UserController {
 
     @Autowired
@@ -17,5 +17,9 @@ public class UserController {
     public Result<String> login(@RequestBody User loginReq) {
         // Controller 只有一行代码调用 Service 起接口作用
         return userService.login(loginReq.getUsername(), loginReq.getPassword());
+    }
+    @PostMapping("/register")
+    public Result<User> register(@RequestBody User user) {
+        return userService.register(user);
     }
 }
