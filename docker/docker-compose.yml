@@ -35,3 +35,5 @@ services:
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     depends_on:
       - zookeeper
+
+# 启动:终端输入：docker exec -it mysql_lark mysql -uroot -proot lark_db

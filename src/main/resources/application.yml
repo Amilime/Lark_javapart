@@ -24,3 +24,10 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+lark:
+  jwt:
+    # 密钥
+    secret: "LarkProject_Industrial_Standard_Secret_Key_2025"
+    # 过期时间  24 小时
+    expiration: 86400000
