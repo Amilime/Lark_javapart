@@ -14,6 +14,7 @@ public class Document {
     private Long id;
     private String title;
 
+    private byte[] content;
     private Integer docType;
     private String fileKey;
     private Long ownerId;

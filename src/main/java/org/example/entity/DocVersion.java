@@ -12,7 +12,7 @@ public class DocVersion {
     private Long id;
     private Long docId;
     private Integer versionNum;
-    private String contentSnapshow;
+    private byte[] contentSnapshow;
     private Long editorId;
     private LocalDateTime createTime;
 }

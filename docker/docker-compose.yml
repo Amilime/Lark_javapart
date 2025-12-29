@@ -38,3 +38,6 @@ services:
       - zookeeper
 
 # 启动:终端输入：docker exec -it mysql_lark mysql -uroot -proot lark_db
+# 启动redis:docker-compose up -d redis
+# 清空redis缓存：docker exec -it lark_redis redis-cli FLUSHALL
+# 启动mysql:docker exec -it mysql_lark mysql -uroot -proot lark_db
